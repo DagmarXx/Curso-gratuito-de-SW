@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "registros";
+$servername = "postgresql://registro.flycast";
+$username = "postgres";
+$password = "uJwvBTH8vlpr9EW";
+$dbname = "registro";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
