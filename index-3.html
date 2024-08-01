@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">     
 </head>
 <body>
 <header>
@@ -38,7 +38,7 @@
             <div class="right-section">
                 <tras>BRINDANOS TU CORREO</tras>
                 <p>Para enviarte el curso, por favor, proporciona tus datos de contacto.</p>
-                <form method="POST" action="index.php">
+                <form id="contact-form">
                     <input type="text" id="first-name" name="first-name" placeholder="Nombre" required>
                     
                     <input type="text" id="last-name" name="last-name" placeholder="Apellido" required>
@@ -70,6 +70,7 @@
 
                     <button type="submit" name="enviar">ENVIAR</button>
 <a>Al hacer clic en "enviar" se te redirigirá a otra pagina y se te enviara un link al correo asignado con el cual podras ingresar a tu curso gratuito. No olvides revisar spam.</a>
+                        
                 </form>
             </div>
         </div>
@@ -96,5 +97,27 @@
         <p>Copyright © 2024 Romina Fernández. Todos los derechos reservados.</p>
     </div>
 </section>
+        <script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var formData = new FormData(this);
+    var data = {};
+    formData.forEach((value, key) => (data[key] = value));
+
+    fetch("https://script.google.com/macros/s/AKfycbx8Uz5YKwhDqEdcqPxm_d0lcvzJbIwVq7rx3bzsH4bgmfdUnfcjhxn-DeGEk4CfcB-D/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        // Redireccionar a otra sección de la página
+        window.location.href = "your-section.html";
+      }
+    });
+  });
+</script>
 </body>
 </html>
