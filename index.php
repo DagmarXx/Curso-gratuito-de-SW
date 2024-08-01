@@ -1,5 +1,5 @@
 <?php
-$servername = "postgresql://registro.flycast";
+$servername = "registro.internal";
 $username = "postgres";
 $password = "uJwvBTH8vlpr9EW";
 $dbname = "registro";
