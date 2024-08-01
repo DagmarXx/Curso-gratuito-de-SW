@@ -105,7 +105,7 @@
     var data = {};
     formData.forEach((value, key) => (data[key] = value));
 
-    fetch("https://script.google.com/macros/s/AKfycbx8Uz5YKwhDqEdcqPxm_d0lcvzJbIwVq7rx3bzsH4bgmfdUnfcjhxn-DeGEk4CfcB-D/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbx8Uz5YKwhDqEdcqPxm_d0lcvzJbIwVq7rx3bzsH4bgmfdUnfcjhxn-DeGEk4CfcB-D/exec"), {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
