@@ -3,6 +3,9 @@ const formulario = document.getElementById('formulario');
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
 
+  // Escapa caracteres especiales en el número de teléfono
+  let phoneValue = formulario['phone'].value.replace(/\+/g, '%2B');
+
   fetch('https://sheet.best/api/sheets/7029e30c-7be4-4511-8f2e-03b832aacee3', {
     method: 'POST',
     mode: 'cors',
@@ -13,7 +16,7 @@ formulario.addEventListener('submit', (e) => {
       "Nombre": formulario['first-name'].value,
       "Apellido": formulario['last-name'].value,
       "Correo": formulario['email'].value,
-      "Numero": formulario['phone'].value,
+      "Numero": phoneValue,
       "WhatsApp": formulario['group-integrationWhats'].checked ? formulario['group-integrationWhats'].value : '',
       "Telegram": formulario['group-integrationTeleg'].checked ? formulario['group-integrationTeleg'].value : '',
       "Ninguno": formulario['group-integrationNone'].checked ? formulario['group-integrationNone'].value : '',
@@ -23,7 +26,7 @@ formulario.addEventListener('submit', (e) => {
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    alert('Datos enviados exitosamente! Revisa tu correo electronico!');
+    alert('Datos enviados exitosamente! Revisa tu correo electrónico!');
     window.location.href = 'index-2.html';  // Redirecciona a index-2.html
   })
   .catch(error => {
