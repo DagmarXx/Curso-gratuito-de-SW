@@ -3,8 +3,8 @@ const formulario = document.getElementById('formulario');
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // Escapa caracteres especiales en el número de teléfono
-  let phoneValue = formulario['phone'].value.replace(/\+/g, '%2B');
+  // Precede el número de teléfono con un apóstrofe para asegurar que se guarde como texto
+  let phoneValue = `'` + formulario['phone'].value;
 
   fetch('https://sheet.best/api/sheets/7029e30c-7be4-4511-8f2e-03b832aacee3', {
     method: 'POST',
